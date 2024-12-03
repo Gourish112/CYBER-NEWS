@@ -45,7 +45,9 @@ The **Cyber Incident Insights and Feed Generator** is a framework and website de
 ![Feed Generator](https://github.com/Gourish112/CYBER-NEWS/blob/954daaa9623861b36d44d0e97460976dd1723285/WhatsApp%20Image%202024-12-03%20at%202.52.03%20PM.jpeg)
 
 ### Cyber Incident Insights
-![Cyber Incident Insights]()
+![Cyber Incident Insights](https://github.com/Gourish112/CYBER-NEWS/blob/78778a413938934d22ba80e32917c9ca79199be3/insights.png)
+
+![Cyber Incident Insights](https://github.com/Gourish112/CYBER-NEWS/blob/78778a413938934d22ba80e32917c9ca79199be3/issues.png)
 
 
 ---
