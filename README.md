@@ -78,7 +78,7 @@ The **Cyber Incident Insights and Feed Generator** is a framework and website de
    ```bash
    git clone https://github.com/Gourish112/CYBER-NEWS.git
 
-2. Install teh dependencies:
+2. Install the dependencies:
    ```bash
    pip install -r requirements.txt
 
