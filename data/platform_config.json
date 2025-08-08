@@ -1,0 +1,263 @@
+{
+  "csis.org": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6993760505672945
+  },
+  "purplesec.us": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.816195876290507
+  },
+  "cybersecurityventures.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.776431236750824
+  },
+  "thehackernews.com": {
+    "scrape": true,
+    "type": "hackernews",
+    "source": "known"
+  },
+  "cshub.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7792095499625125
+  },
+  "cisa.gov": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7713779674438114
+  },
+  "konbriefing.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7856464518647832
+  },
+  "icc-cpi.int": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.79139664928743
+  },
+  "sentinelone.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7719432822382468
+  },
+  "kennedyslaw.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7268102980579159
+  },
+  "blog.eclecticiq.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6696459451055614
+  },
+  "onapsis.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7528834336257196
+  },
+  "safebreach.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7253021349207762
+  },
+  "blog.coffinsec.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6927117235260831
+  },
+  "cloud.google.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6174931581217692
+  },
+  "blog.lexfo.fr": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6605368555862036
+  },
+  "exploit-db.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6898661997639169
+  },
+  "horizon3.ai": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6079082596153228
+  },
+  "github.com": {
+    "scrape": false,
+    "type": "auto",
+    "confidence": 0.5312885952013707,
+    "reason": "low_confidence"
+  },
+  "attack.mitre.org": {
+    "scrape": false,
+    "type": "auto",
+    "confidence": 0.35754832593505587,
+    "reason": "low_confidence"
+  },
+  "teamt5.org": {
+    "scrape": false,
+    "type": "auto",
+    "confidence": 0.5961732156512256,
+    "reason": "low_confidence"
+  },
+  "securelist.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6119553032146027
+  },
+  "crowdstrike.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.731632904433835
+  },
+  "welivesecurity.com": {
+    "scrape": false,
+    "type": "auto",
+    "confidence": 0.5041202968105806,
+    "reason": "low_confidence"
+  },
+  "en.wikipedia.org": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7867564540677651
+  },
+  "nsa.gov": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7672088703651878
+  },
+  "cyber.gc.ca": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7690026802479454
+  },
+  "hitachienergy.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7143130644705441
+  },
+  "johnsoncontrols.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6872082066189468
+  },
+  "its.ny.gov": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7700296042056229
+  },
+  "siemens.com": {
+    "scrape": false,
+    "type": "auto",
+    "confidence": 0.4882430352765092,
+    "reason": "low_confidence"
+  },
+  "rapid7.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7129583662181611
+  },
+  "bleepingcomputer.com": {
+    "scrape": true,
+    "type": "bleepingcomputer",
+    "source": "known"
+  },
+  "cybersecuritydive.com": {
+    "scrape": false,
+    "type": "auto",
+    "confidence": 0.42584756079624947,
+    "reason": "low_confidence"
+  },
+  "portswigger.net": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6854238075720481
+  },
+  "ibm.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6406465166346539
+  },
+  "infosecurity-magazine.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7138806619418268
+  },
+  "fbi.gov": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7446170581285234
+  },
+  "sophos.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7411767593005298
+  },
+  "ncsc.gov.uk": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7594375011853108
+  },
+  "ic3.gov": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.758402072065894
+  },
+  "enisa.europa.eu": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.777033834865461
+  },
+  "atg.wa.gov": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.6455080113239183
+  },
+  "veeam.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7498840663972891
+  },
+  "coveware.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7469322514924163
+  },
+  "zscaler.com": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.7943881385855995
+  },
+  "cert-in.org.in": {
+    "scrape": true,
+    "type": "certin",
+    "source": "known"
+  },
+  "bazaar.abuse.ch": {
+    "scrape": true,
+    "type": "malwarebazaar",
+    "source": "known"
+  },
+  "blog.talosintelligence.com": {
+    "scrape": true,
+    "type": "talos",
+    "source": "known"
+  },
+  "krebsonsecurity.com": {
+    "scrape": true,
+    "type": "krebs",
+    "source": "known"
+  },
+  "nascus.org": {
+    "scrape": true,
+    "type": "auto",
+    "confidence": 0.8071602678306969
+  }
+}

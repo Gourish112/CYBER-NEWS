@@ -1,0 +1,541 @@
+[
+  {
+    "title": "GreedyBear Steals $1M in Crypto Using 150+ Malicious Firefox Wallet Extensions",
+    "summary": "A newly discovered campaign dubbed GreedyBear  has leveraged over 150 malicious extensions to the Firefox marketplace that are designed to impersonate popular cryptocurrency wallets and steal more than $1 million in digital assets.  The published browser add-ons masquerade as MetaMask, TronLink, Exodus, and Rabby Wallet, among others, Koi Security researcher Tuval Admoni said.  What makes the activity notable is the threat actor's use of a technique that the cybersecurity company called Extension Hollowing to bypass safeguards put in place by Mozilla and exploit user trust. It's worth noting that some aspects of the campaign were first documented  by security researcher Lukasz Olejnik last week.  \"Rather than trying to sneak malicious extensions past initial reviews, they build legitimate-seeming extension portfolios first, then weaponize them later when nobody's watching,\" Admoni said  in a report published Thursday.  To achieve this, the attackers first create ...",
+    "link": "https://thehackernews.com/2025/08/greedybear-steals-1m-in-crypto-using.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Firefox",
+        "Mozilla",
+        "Extension Hollowing",
+        "GreedyBear",
+        "Koi Security",
+        "TronLink"
+      ],
+      "GPE": []
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "high",
+    "tags": [
+      "exploit",
+      "threat actor"
+    ]
+  },
+  {
+    "title": "SocGholish Malware Spread via Ad Tools; Delivers Access to LockBit, Evil Corp, and Others",
+    "summary": "The threat actors behind the SocGholish malware have been observed leveraging Traffic Distribution Systems (TDSs) like Parrot TDS and Keitaro TDS  to filter and redirect unsuspecting users to sketchy content.  \"The core of their operation is a sophisticated Malware-as-a-Service (MaaS) model, where infected systems are sold as initial access points to other cybercriminal organizations,\" Silent Push said  in an analysis.  SocGholish, also called FakeUpdates, is a JavaScript loader malware  that's distributed via compromised websites by masquerading as deceptive updates for web browsers like Google Chrome or Mozilla Firefox, as well as other software such as Adobe Flash Player or Microsoft Teams. It's attributed to a threat actor called TA569, which is also tracked as Gold Prelude, Mustard Tempest, Purple Vallhund, and UNC1543.  Attack chains involve deploying SocGholish to establish initial access and broker that compromised system access to a diverse clientele, includ...",
+    "link": "https://thehackernews.com/2025/08/socgholish-malware-spread-via-ad-tools.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Purple Vallhund",
+        "Delivers Access",
+        "Microsoft Teams",
+        "SocGholish Malware Spread",
+        "Mozilla Firefox",
+        "SocGholish",
+        "Traffic Distribution Systems",
+        "Adobe Flash Player",
+        "FakeUpdates",
+        "Google Chrome",
+        "JavaScript"
+      ],
+      "GPE": []
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "high",
+    "tags": [
+      "malware",
+      "microsoft",
+      "threat actor"
+    ]
+  },
+  {
+    "title": "Webinar: How to Stop Python Supply Chain Attacks\u2014and the Expert Tools You Need",
+    "summary": "Python is everywhere in modern software. From machine learning models to production microservices, chances are your code\u2014and your business\u2014depends on Python packages you didn't write.  But in 2025, that trust comes with a serious risk.  Every few weeks, we're seeing fresh headlines about malicious packages uploaded to the Python Package Index (PyPI)\u2014many going undetected until after they've caused real harm. One of the most dangerous recent examples? In December 2024, attackers quietly compromised the Ultralytics YOLO package, widely used in computer vision applications. It was downloaded thousands of times before anyone noticed.  This wasn't an isolated event. This is the new normal.   Python supply chain attacks are rising fast\u2014and your next pip install could be the weakest link. Join our webinar to learn what's really happening, what's coming next, and how to secure your code with confidence. Don't wait for a breach. Watch this webinar now and take control. .   What's Really Going ...",
+    "link": "https://thehackernews.com/2025/08/webinar-how-to-stop-python-supply-chain.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "the Python Package"
+      ],
+      "GPE": []
+    },
+    "category": "Data Breaches",
+    "threatLevel": "critical",
+    "tags": [
+      "breach",
+      "supply chain"
+    ]
+  },
+  {
+    "title": "Malicious Go, npm Packages Deliver Cross-Platform Malware, Trigger Remote Data Wipes",
+    "summary": "Cybersecurity researchers have discovered a set of 11 malicious Go packages that are designed to download additional payloads from remote servers and execute them on both Windows and Linux systems.  \"At runtime the code silently spawns a shell, pulls a second-stage payload from an interchangeable set of .icu and .tech command-and-control (C2) endpoints, and executes it in memory,\" Socket security researcher Olivia Brown said .  The list of identified packages is below -   github.com/stripedconsu/linker  github.com/agitatedleopa/stm  github.com/expertsandba/opt  github.com/wetteepee/hcloud-ip-floater  github.com/weightycine/replika  github.com/ordinarymea/tnsr_ids  github.com/ordinarymea/TNSR_IDS  github.com/cavernouskina/mcp-go  github.com/lastnymph/gouid  github.com/sinfulsky/gouid  github.com/briefinitia/gouid",
+    "link": "https://thehackernews.com/2025/08/malicious-go-npm-packages-deliver-cross.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "npm Packages Deliver Cross-Platform Malware",
+        "Trigger Remote Data Wipes Cybersecurity",
+        ".tech"
+      ],
+      "GPE": []
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "medium",
+    "tags": [
+      ".tech",
+      "malware",
+      "payload"
+    ]
+  },
+  {
+    "title": "The AI-Powered Security Shift: What 2025 Is Teaching Us About Cloud Defense",
+    "summary": "Now that we are well into 2025, cloud attacks are evolving faster than ever and artificial intelligence (AI) is both a weapon and a shield. As AI rapidly changes how enterprises innovate, security teams are now tasked with a triple burden:   Secure AI  embedded in every part of the business.  Use AI  to defend faster and smarter.  Fight AI-powered threats  that execute in minutes\u2014or seconds.   Security is no longer about balancing speed and safety. In today's cloud-native world, real-time, context-aware defense is a baseline expectation, not a competitive edge. The recent Sysdig Cloud Defense Report 2025  breaks down this tectonic shift. Below, we unpack its key insights for security practitioners aiming to stay ahead of an accelerating threat landscape.  AI: The Double-Edged Sword of Cloud Security  AI is transforming the security paradigm. It's both empowering defenders while creating entirely new attack surfaces.  AI for Security: Fighting Fire with Fire  Attackers are automating f...",
+    "link": "https://thehackernews.com/2025/08/the-ai-powered-security-shift-what-2025.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [
+        "defense"
+      ],
+      "ORG": [
+        "The AI-Powered Security Shift"
+      ],
+      "GPE": [
+        "AI"
+      ]
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "medium",
+    "tags": []
+  },
+  {
+    "title": "Microsoft Discloses Exchange Server Flaw Enabling Silent Cloud Access in Hybrid Setups",
+    "summary": "Microsoft has released an advisory for a high-severity security flaw affecting on-premise versions of Exchange Server that could allow an attacker to gain elevated privileges under certain conditions.  The vulnerability, tracked as CVE-2025-53786 , carries a CVSS score of 8.0. Dirk-jan Mollema with Outsider Security has been acknowledged for reporting the bug.  \"In an Exchange hybrid deployment, an attacker who first gains administrative access to an on-premises Exchange server could potentially escalate privileges within the organization's connected cloud environment without leaving easily detectable and auditable traces,\" the tech giant said  in the alert.  \"This risk arises because Exchange Server and Exchange Online share the same service principal in hybrid configurations.\"  Successful exploitation of the flaw could allow an attacker to escalate privileges within the organization's connected cloud environment without leaving easily detectable and audit...",
+    "link": "https://thehackernews.com/2025/08/microsoft-discloses-exchange-server.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [
+        "CVE-2025-53786"
+      ],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "CVSS",
+        "Outsider Security",
+        "Microsoft Discloses Exchange",
+        "Exchange",
+        "Mollema",
+        "CVE-2025-53786",
+        "Microsoft",
+        "Exchange Server and Exchange Online",
+        "Dirk"
+      ],
+      "GPE": []
+    },
+    "category": "Breaking News",
+    "threatLevel": "high",
+    "tags": [
+      "dirk",
+      "vulnerability",
+      "cve",
+      "microsoft",
+      "setups microsoft"
+    ]
+  },
+  {
+    "title": "6,500 Axis Servers Expose Remoting Protocol; 4,000 in U.S. Vulnerable to Exploits",
+    "summary": "Cybersecurity researchers have disclosed multiple security flaws in video surveillance products from Axis Communications that, if successfully exploited, could expose them to takeover attacks.  \"The attack results in pre-authentication remote code execution on Axis Device Manager, a server used to configure and manage fleets of cameras, and the Axis Camera Station, client software used to view camera feeds,\" Claroty researcher Noam Moshe said .  \"Furthermore, using internet scans of exposed Axis.Remoting services, an attacker can enumerate vulnerable servers and clients, and carry out granular, highly targeted attacks.\"   The list of identified flaws is below -   CVE-2025-30023  (CVSS score: 9.0) - A flaw in the communication protocol used between client and server that could lead to an authenticated user performing a remote code execution attack (Fixed in Camera Station Pro 6.9, Camera Station 5.58, and Device Manager 5.32)  CVE-2025-30024  (CVSS score: 6.8) - A f...",
+    "link": "https://thehackernews.com/2025/08/6500-axis-servers-expose-remoting.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [
+        "CVE-2025-30023",
+        "CVE-2025-30024"
+      ],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "the Axis Camera Station",
+        "CVE-2025-30024",
+        "Axis Communications",
+        "Axis Servers Expose Remoting Protocol",
+        "Claroty"
+      ],
+      "GPE": [
+        "U.S."
+      ]
+    },
+    "category": "Security Research",
+    "threatLevel": "critical",
+    "tags": [
+      "exploit",
+      "cve",
+      "u.s."
+    ]
+  },
+  {
+    "title": "SonicWall Confirms Patched Vulnerability Behind Recent VPN Attacks, Not a Zero-Day",
+    "summary": "SonicWall has revealed that the recent spike in activity  targeting its Gen 7 and newer firewalls with SSL VPN enabled is related to an older, now-patched bug and password reuse.  \"We now have high confidence that the recent SSL VPN activity is not connected to a zero-day vulnerability,\" the company said . \"Instead, there is a significant correlation with threat activity related to CVE-2024-40766.\"  CVE-2024-40766 (CVSS score: 9.3) was first disclosed  by SonicWall in August 2024, calling it an improper access control issue that could allow malicious actors unauthorized access to the devices.  \"An improper access control vulnerability has been identified in the SonicWall SonicOS management access, potentially leading to unauthorized resource access and, in specific conditions, causing the firewall to crash,\" it noted  in an advisory at the time.   SonicWall also said it's investigating less than 40 incidents related to this activity, and that many of ...",
+    "link": "https://thehackernews.com/2025/08/sonicwall-confirms-patched.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [
+        "CVE-2024-40766",
+        "CVE-2024-40766"
+      ],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "SonicWall",
+        "SSL",
+        "SonicWall Confirms Patched Vulnerability Behind Recent VPN Attacks",
+        "CVE-2024-40766",
+        "SSL VPN"
+      ],
+      "GPE": []
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "critical",
+    "tags": [
+      "vulnerability",
+      "cve",
+      "zero-day",
+      "patch"
+    ]
+  },
+  {
+    "title": "Researchers Uncover ECScape Flaw in Amazon ECS Enabling Cross-Task Credential Theft",
+    "summary": "Cybersecurity researchers have demonstrated an \"end-to-end privilege escalation chain\" in Amazon Elastic Container Service ( ECS ) that could be exploited by an attacker to conduct lateral movement, access sensitive data, and seize control of the cloud environment.  The attack technique has been codenamed ECScape by Sweet Security  researcher Naor Haziz, who presented  the findings today at the Black Hat USA security conference that's being held in Las Vegas.  \"We identified a way to abuse an undocumented ECS internal protocol to grab AWS credentials belonging to other ECS tasks on the same EC2 instance,\" Haziz said  in a report shared with The Hacker News. \"A malicious container with a low\u2011privileged IAM [Identity and Access Management] role can obtain the permissions of a higher\u2011privileged container running on the same host.\"  Amazon ECS is a fully-managed container orchestration service that allows users to deploy, manage, and scale containerized ...",
+    "link": "https://thehackernews.com/2025/08/researchers-uncover-ecscape-flaw-in.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Amazon Elastic Container Service",
+        "ECS",
+        "AWS",
+        "Amazon ECS",
+        "Haziz",
+        "Amazon ECS Enabling Cross-Task Credential Theft Cybersecurity",
+        "IAM",
+        "Identity and Access Management",
+        "ECScape",
+        "The Hacker News"
+      ],
+      "GPE": [
+        "Las Vegas"
+      ]
+    },
+    "category": "Security Research",
+    "threatLevel": "high",
+    "tags": [
+      "las vegas",
+      "exploit"
+    ]
+  },
+  {
+    "title": "Fake VPN and Spam Blocker Apps Tied to VexTrio Used in Ad Fraud, Subscription Scams",
+    "summary": "The malicious ad tech purveyor known as VexTrio Viper  has been observed developing several malicious apps that have been published on Apple and Google's official app storefronts under the guise of seemingly useful applications.  These apps masquerade as VPNs, device \"monitoring\" apps, RAM cleaners, dating services, and spam blockers, DNS threat intelligence firm Infoblox said in an exhaustive analysis shared with The Hacker News.  \"They released apps under several developer names, including HolaCode, LocoMind, Hugmi, Klover Group, and AlphaScale Media,\" the company said . \"Available in the Google Play and Apple store, these have been downloaded millions of times in aggregate.\"  These fake apps, once installed, deceive users into signing up for subscriptions that are difficult to cancel, flood them with ads, and part with personal information like email addresses. It's worth noting that LocoMind was previously flagged  by Cyjax as part of a phishi...",
+    "link": "https://thehackernews.com/2025/08/fake-vpn-and-spam-blocker-apps-tied-to.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "VexTrio Used",
+        "Apple",
+        "LocoMind",
+        "DNS",
+        "RAM",
+        "AlphaScale Media",
+        "VexTrio Viper",
+        "Google",
+        "Hugmi",
+        "Klover Group",
+        "Cyjax",
+        "The Hacker News"
+      ],
+      "GPE": [
+        "Ad Fraud"
+      ]
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "medium",
+    "tags": [
+      "google",
+      "hugmi"
+    ]
+  },
+  {
+    "title": "AI Slashes Workloads for vCISOs by 68% as SMBs Demand More \u2013 New Report Reveals",
+    "summary": "As the volume and sophistication of cyber threats and risks grow, cybersecurity has become mission-critical for businesses of all sizes. To address this shift, SMBs have been urgently turning to vCISO services to keep up with escalating threats and compliance demands. A recent report by Cynomi has found that a full 79% of MSPs and MSSPs see high demand for vCISO services among SMBs.  How are service providers scaling to meet this demand? Which business upside can they expect to see? And where does AI fit in?  The answers can be found in \"The 2025 State of the vCISO Report\".  This newly-released report offers a deep dive into the vCISO market evolution and the broader shift toward advanced cybersecurity services. The bottom line? What used to be a niche offering is now a foundational service, and AI is transforming how it's delivered. Below, we bring some of the main findings of the report.  319% Growth in vCISO Adoption: MSPs & MSSPs Race to Meet SMB Demand  vCISO offerings provid...",
+    "link": "https://thehackernews.com/2025/08/ai-slashes-workloads-for-vcisos-by-68.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [],
+      "GPE": [
+        "AI"
+      ]
+    },
+    "category": "Breaking News",
+    "threatLevel": "medium",
+    "tags": []
+  },
+  {
+    "title": "Microsoft Launches Project Ire to Autonomously Classify Malware Using AI Tools",
+    "summary": "Microsoft on Tuesday announced an autonomous artificial intelligence (AI) agent that can analyze and classify software without assistance in an effort to advance malware detection efforts.  The large language model (LLM)-powered autonomous malware classification system, currently a prototype, has been codenamed Project Ire  by the tech giant.  The system \"automates what is considered the gold standard in malware classification: fully reverse engineering a software file without any clues about its origin or purpose,\" Microsoft said . \"It uses decompilers and other tools, reviews their output, and determines whether the software is malicious or benign.\"  Project Ire, per the Windows maker, is an effort to enable malware classification at scale, accelerate threat response, and reduce the manual efforts that analysts have to undertake in order to examine samples and determine if they are malicious or benign.   Specifically, it uses specialized tools to reverse engineer...",
+    "link": "https://thehackernews.com/2025/08/microsoft-launches-project-ire-to.html",
+    "source": "The Hacker News",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Microsoft",
+        "Microsoft Launches Project Ire to Autonomously Classify Malware Using"
+      ],
+      "GPE": [
+        "AI"
+      ]
+    },
+    "category": "Threat Intelligence",
+    "threatLevel": "medium",
+    "tags": [
+      "malware",
+      "llm)-powered",
+      "microsoft"
+    ]
+  },
+  {
+    "title": "Who Got Arrested in the Raid on the XSS Crime Forum?",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/08/who-got-arrested-in-the-raid-on-the-xss-crime-forum/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "the XSS Crime Forum"
+      ],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": [
+      "xss"
+    ]
+  },
+  {
+    "title": "Scammers Unleash Flood of Slick Online Gaming Sites",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/scammers-unleash-flood-of-slick-online-gaming-sites/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Scammers Unleash Flood of Slick Online Gaming Sites"
+      ],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": []
+  },
+  {
+    "title": "Phishers Target Aviation Execs to Scam Customers",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/phishers-target-aviation-execs-to-scam-customers/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": []
+  },
+  {
+    "title": "Microsoft Fix Targets Attacks on SharePoint Zero-Day",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/microsoft-fix-targets-attacks-on-sharepoint-zero-day/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Microsoft"
+      ],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "critical",
+    "tags": [
+      "zero-day",
+      "microsoft"
+    ]
+  },
+  {
+    "title": "Poor Passwords Tattle on AI Hiring Bot Maker Paradox.ai",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/poor-passwords-tattle-on-ai-hiring-bot-maker-paradox-ai/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": []
+  },
+  {
+    "title": "DOGE Denizen Marko Elez Leaked API Key for xAI",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/doge-denizen-marko-elez-leaked-api-key-for-xai/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [],
+      "GPE": []
+    },
+    "category": "Data Breaches",
+    "threatLevel": "medium",
+    "tags": [
+      "leak"
+    ]
+  },
+  {
+    "title": "UK Arrests Four in \u2018Scattered Spider\u2019 Ransom Group",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/uk-charges-four-in-scattered-spider-ransom-group/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [],
+      "GPE": [
+        "UK"
+      ]
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": []
+  },
+  {
+    "title": "Microsoft Patch Tuesday, July 2025 Edition",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/microsoft-patch-tuesday-july-2025-edition/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Microsoft Patch"
+      ],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "low",
+    "tags": [
+      "microsoft patch",
+      "patch"
+    ]
+  },
+  {
+    "title": "Big Tech\u2019s Mixed Response to U.S. Treasury Sanctions",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/07/big-techs-mixed-response-to-u-s-treasury-sanctions/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Big Tech\u2019s Mixed Response"
+      ],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": [
+      "u.s."
+    ]
+  },
+  {
+    "title": "Senator Chides FBI for Weak Advice on Mobile Security",
+    "summary": "",
+    "link": "https://krebsonsecurity.com/2025/06/senator-chides-fbi-for-weak-advice-on-mobile-security/",
+    "source": "Krebs on Security",
+    "date": "",
+    "entities": {
+      "CVE": [],
+      "APT": [],
+      "Sector": [],
+      "ORG": [
+        "Weak Advice"
+      ],
+      "GPE": []
+    },
+    "category": "Uncategorized",
+    "threatLevel": "medium",
+    "tags": [
+      "fbi"
+    ]
+  }
+]

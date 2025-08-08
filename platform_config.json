@@ -1,0 +1,148 @@
+{
+  "csis.org": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "purplesec.us": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "secureframe.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "thehackernews.com": {
+    "scrape": true,
+    "type": "hackernews",
+    "source": "known"
+  },
+  "cybersecurityventures.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "cshub.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "cisa.gov": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "konbriefing.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "sentinelone.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "acquisition.gov": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "blog.eclecticiq.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "microsoft.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "safebreach.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "exploit-db.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "blog.coffinsec.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "msrc.microsoft.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "onapsis.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "cloud.google.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "connormcgarr.github.io": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "github.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "teamt5.org": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "crowdstrike.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "securelist.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "welivesecurity.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "mandiant.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "nsa.gov": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "nascus.org": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "hitachienergy.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "cyber.gc.ca": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "johnsoncontrols.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "cert-in.org.in": {
+    "scrape": true,
+    "type": "cert",
+    "source": "known"
+  },
+  "bazaar.abuse.ch": {
+    "scrape": true,
+    "type": "malwarebazaar",
+    "source": "known"
+  },
+  "bleepingcomputer.com": {
+    "scrape": true,
+    "type": "bleeping",
+    "source": "known"
+  },
+  "blog.talosintelligence.com": {
+    "scrape": true,
+    "type": "talos",
+    "source": "known"
+  },
+  "krebsonsecurity.com": {
+    "scrape": true,
+    "type": "krebs",
+    "source": "known"
+  }
+}

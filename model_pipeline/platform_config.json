@@ -1,0 +1,18 @@
+{
+  "thehackernews.com": {
+    "scrape": true,
+    "type": "hackernews"
+  },
+  "cert-in.org.in": {
+    "scrape": true,
+    "type": "certin"
+  },
+  "bazaar.abuse.ch": {
+    "scrape": true,
+    "type": "malwarebazaar"
+  },
+  "randomblog.com": {
+    "scrape": false,
+    "type": "unknown"
+  }
+}
