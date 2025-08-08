@@ -25,7 +25,6 @@ dist-ssr
 .env
 
 .bolt
-/backend/config
 /backend/data/subscribers.json
 /backend/docs/API.md
 /backend/.env
