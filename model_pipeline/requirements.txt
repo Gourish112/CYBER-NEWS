@@ -95,7 +95,7 @@ PySocks==1.7.1
 python-dateutil==2.8.2
 python-dotenv==1.0.1
 pytz==2023.3.post1
-pywin32==302
+pywin32 @ https://github.com/mhammond/pywin32/releases/download/b302/pywin32-302-cp310-cp310-win_amd64.whl
 PyYAML==6.0.1
 pyzmq==25.1.2
 regex==2023.12.25
@@ -152,5 +152,6 @@ Werkzeug==2.3.8
 wrapt==1.16.0
 wsproto==1.2.0
 yfinance==0.2.36
+
 
 
