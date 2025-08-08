@@ -80,15 +80,15 @@
     "scrape": true,
     "type": "auto"
   },
-  "teamt5.org": {
-    "scrape": true,
-    "type": "auto"
-  },
   "crowdstrike.com": {
     "scrape": true,
     "type": "auto"
   },
-  "securelist.com": {
+  "teamt5.org": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "usa.kaspersky.com": {
     "scrape": true,
     "type": "auto"
   },
@@ -97,6 +97,10 @@
     "type": "auto"
   },
   "mandiant.com": {
+    "scrape": true,
+    "type": "auto"
+  },
+  "securelist.com": {
     "scrape": true,
     "type": "auto"
   },

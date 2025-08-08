@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sentence_transformers import SentenceTransformer
 
 # Load dataset
-with open(r'C:\Users\Gourish\Downloads\project-bolt-sb1-gb6bspbh\project\model\cyber_platforms_label.json', 'r') as f:
+with open(r'C:\Users\Gourish\Downloads\cyberwatch\project\model\cyber_platforms_label.json', 'r') as f:
     data = json.load(f)
 
 df = pd.DataFrame(data)

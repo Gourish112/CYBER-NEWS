@@ -20,8 +20,8 @@ API_KEY = os.getenv("API_KEY")
 SEARCH_ENGINE_ID = os.getenv("CSE_ID")
 
 # Load models
-classifier = joblib.load(r"C:\Users\Gourish\Downloads\project-bolt-sb1-gb6bspbh\project\model_pipeline\cyber_platform_classifier.pkl")
-encoder = joblib.load(r"C:\Users\Gourish\Downloads\project-bolt-sb1-gb6bspbh\project\model_pipeline\cyber_sbert_encoder.pkl")
+classifier = joblib.load(r"C:\Users\Gourish\Downloads\cyberwatch\project\model_pipeline\cyber_platform_classifier.pkl")
+encoder = joblib.load(r"C:\Users\Gourish\Downloads\cyberwatch\project\model_pipeline\cyber_sbert_encoder.pkl")
 nlp = spacy.load("en_core_web_sm")
 
 app = Flask(__name__)
@@ -427,19 +427,19 @@ def run_pipeline():
     raw_articles = scrape_all_articles(platform_config)
 
     # Step 6: Save raw scraped articles
-    with open(r"C:\Users\Gourish\Downloads\project-bolt-sb1-gb6bspbh\project\public\all_articles.json", "w", encoding="utf-8") as f:
+    with open(r"C:\Users\Gourish\Downloads\cyberwatch\project\public\all_articles.json", "w", encoding="utf-8") as f:
         json.dump(raw_articles, f, indent=2)
 
     # Step 7: Enrich articles with category + entities
     enriched = enrich_articles(raw_articles)
 
     # Step 8: Save enriched article set
-    with open(r"C:\Users\Gourish\Downloads\project-bolt-sb1-gb6bspbh\project\public\cyware_news.json", "w", encoding="utf-8") as f:
+    with open(r"C:\Users\Gourish\Downloads\cyberwatch\project\public\cyware_news.json", "w", encoding="utf-8") as f:
         json.dump(enriched, f, indent=2)
 
     insights = generate_insights(enriched)
 
-    with open(r"C:\Users\Gourish\Downloads\project-bolt-sb1-gb6bspbh\project\public\cyber_news_insights.json", "w", encoding="utf-8") as f:
+    with open(r"C:\Users\Gourish\Downloads\cyberwatch\project\public\cyber_news_insights.json", "w", encoding="utf-8") as f:
         json.dump(insights, f, indent=2)
 
     return {
