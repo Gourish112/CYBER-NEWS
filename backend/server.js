@@ -149,7 +149,11 @@ setInterval(runPythonScript, 10 * 60 * 1000);
  * type: string
  * example: Internal Server Error
  */
-app.post('/api/subscribe', async (req, res) => {
+app.post('/api/subscribe',cors({
+  origin: process.env.CORS_ORIGIN ,
+  methods: ['POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}) ,async (req, res) => {
   const { email } = req.body;
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
