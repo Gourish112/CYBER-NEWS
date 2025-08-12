@@ -20,8 +20,8 @@ API_KEY = os.getenv("API_KEY")
 SEARCH_ENGINE_ID = os.getenv("CSE_ID")
 
 # Load models
-classifier = joblib.load("cyber_platform_classifier.pkl")
-encoder = joblib.load("cyber_sbert_encoder.pkl")
+classifier = joblib.load("project\model_pipeline\cyber_platform_classifier.pkl")
+encoder = joblib.load("project\model_pipeline\cyber_sbert_encoder.pkl")
 nlp = spacy.load("en_core_web_sm")
 
 app = Flask(__name__)
