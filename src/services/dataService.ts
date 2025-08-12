@@ -42,7 +42,7 @@ class DataService {
   private insightsCache: InsightsData | null = null;
   private lastFetch: number = 0;
   private readonly CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-  private readonly API_BASE_URL = 'http://localhost:5000/api';
+  private readonly API_BASE_URL = import.meta.env.VITE_API_URL;
 
   static getInstance(): DataService {
     if (!DataService.instance) {
