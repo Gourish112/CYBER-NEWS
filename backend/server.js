@@ -28,7 +28,7 @@ const app = express();
 // GLOBAL MIDDLEWARE
 // -----------------------------------------------------------
 app.use(cors({
-  origin: config.corsOrigin,
+  origin: process.env.CORS_ORIGIN,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
