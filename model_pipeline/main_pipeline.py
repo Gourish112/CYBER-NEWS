@@ -27,7 +27,7 @@ classifier_path = os.path.join(BASE_DIR, "cyber_platform_classifier.pkl")
 encoder_path = os.path.join(BASE_DIR, "cyber_sbert_encoder.pkl")
 
 classifier = joblib.load(classifier_path)
-encoder = joblib.load(encoder_path)
+encoder = SentenceTransformer(encoder_path)
 nlp = spacy.load("en_core_web_sm")
 
 app = Flask(__name__)
