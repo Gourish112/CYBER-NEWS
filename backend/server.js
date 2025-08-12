@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 
 // ✅ Initialize app
 const app = express();
-
+app.set('trust proxy', 1);
 // -----------------------------------------------------------
 // GLOBAL MIDDLEWARE
 // -----------------------------------------------------------
