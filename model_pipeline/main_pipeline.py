@@ -20,8 +20,14 @@ API_KEY = os.getenv("API_KEY")
 SEARCH_ENGINE_ID = os.getenv("CSE_ID")
 
 # Load models
-classifier = joblib.load("project\model_pipeline\cyber_platform_classifier.pkl")
-encoder = joblib.load("project\model_pipeline\cyber_sbert_encoder.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load models from local files
+classifier_path = os.path.join(BASE_DIR, "cyber_platform_classifier.pkl")
+encoder_path = os.path.join(BASE_DIR, "cyber_sbert_encoder.pkl")
+
+classifier = joblib.load(classifier_path)
+encoder = joblib.load(encoder_path)
 nlp = spacy.load("en_core_web_sm")
 
 app = Flask(__name__)
