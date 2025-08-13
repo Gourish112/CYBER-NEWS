@@ -52,12 +52,12 @@ The **Cyber Incident Insights and Feed Generator** is a framework and website de
 ## Screenshots
 
 ### Feed Generator
-![Home Page]()
+![Home Page](assets/homepage.jpg)
 
 ### Cyber Incident Insights
-![Cyber Incident Insights](https://github.com/Gourish112/CYBER-NEWS/blob/78778a413938934d22ba80e32917c9ca79199be3/insights.png)
+![Cyber Incident Insights](assets/threatdash.jpg)
 
-![Cyber Incident Insights](https://github.com/Gourish112/CYBER-NEWS/blob/78778a413938934d22ba80e32917c9ca79199be3/issues.png)
+![Cyber Incident Insights](assets/analysis.jpg)
 
 
 ---
