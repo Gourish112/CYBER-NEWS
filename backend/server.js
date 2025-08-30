@@ -334,7 +334,9 @@ app.get('/health', (req, res) => {
     },
   });
 });
-
+app.get('/api', (req, res) => {
+    res.send('OK'); 
+});
 // 404 fallback for undefined routes
 app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found', path: req.originalUrl });
