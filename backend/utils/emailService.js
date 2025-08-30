@@ -11,9 +11,7 @@ class EmailService {
   }
 
   initTransporter() {
-    // Configure your email provider
-    // Option 1: Gmail
-    console.log(config.email.user);
+    
 
     if (config.email.provider === 'gmail') {
       this.transporter = nodemailer.createTransport({
