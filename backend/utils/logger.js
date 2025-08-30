@@ -1,8 +1,11 @@
 import winston from 'winston';
 import { config } from '../config/config.js';
 
+// Use a dedicated LOG_LEVEL variable, or fall back to a default
+const logLevel = process.env.LOG_LEVEL || (config.nodeEnv === 'production' ? 'info' : 'debug');
+
 const logger = winston.createLogger({
-  level: config.nodeEnv === 'production' ? 'info' : 'debug',
+  level: logLevel, // Set the log level based on the environment variable
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.errors({ stack: true }),
