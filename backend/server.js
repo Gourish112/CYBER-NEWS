@@ -11,10 +11,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import articlesRouter from './routes/articles.js';
 import analyticsRouter from './routes/analytics.js';
-import emailService from './utils/emailService.js'; // Import the email service
+import emailService from './utils/emailService.js';
 import { spawn } from 'child_process';
-// ✅ dotenv for .env loading
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 // ✅ ESM __dirname fix
@@ -24,6 +24,7 @@ const __dirname = path.dirname(__filename);
 // ✅ Initialize app
 const app = express();
 app.set('trust proxy', 1);
+
 // -----------------------------------------------------------
 // GLOBAL MIDDLEWARE
 // -----------------------------------------------------------
@@ -61,109 +62,71 @@ const subscribersFile = path.join(__dirname, 'subscribers.json');
 if (!fs.existsSync(subscribersFile)) {
   fs.writeFileSync(subscribersFile, '[]', 'utf-8');
 }
+
+// -----------------------------------------------------------
+// PYTHON PIPELINE CRON JOB (FIXED)
+// -----------------------------------------------------------
+let pythonProcess = null;
+
 const runPythonScript = () => {
+  if (pythonProcess) {
+    logger.warn('Killing previous pipeline process to prevent memory leak...');
+    pythonProcess.kill('SIGTERM');
+  }
+
   logger.info('Starting main_pipeline.py...');
-  const pythonProcess = spawn('python', ['model_pipeline/main_pipeline.py']);
+  pythonProcess = spawn('python', ['model_pipeline/main_pipeline.py'], {
+    cwd: path.join(__dirname), // run from backend dir
+    detached: false
+  });
 
   pythonProcess.stdout.on('data', (data) => {
-    logger.info(`Python stdout: ${data}`);
+    const line = data.toString();
+    // Truncate long lines to avoid cron "output too large"
+    const safeLine = line.length > 500 ? line.substring(0, 500) + '... [truncated]' : line;
+    logger.info(`Python stdout: ${safeLine}`);
   });
 
   pythonProcess.stderr.on('data', (data) => {
-    logger.error(`Python stderr: ${data}`);
+    const line = data.toString();
+    const safeLine = line.length > 500 ? line.substring(0, 500) + '... [truncated]' : line;
+    logger.error(`Python stderr: ${safeLine}`);
+  });
+
+  pythonProcess.on('error', (err) => {
+    logger.error(`Python process failed: ${err.message}`);
   });
 
   pythonProcess.on('close', (code) => {
     logger.info(`main_pipeline.py exited with code ${code}`);
-    if (code !== 0) {
-      logger.error(`main_pipeline.py failed with exit code: ${code}`);
-    }
+    pythonProcess = null; // reset ref
   });
 };
+
+// Run immediately on startup
 runPythonScript();
 
-// Schedule the script to run every 10 minutes
-setInterval(runPythonScript, 10 * 60 * 1000);
-/**
- * @swagger
- * /api/subscribe:
- * post:
- * summary: Subscribe to the newsletter
- * description: Registers a new email for the CyberWatch newsletter and sends a welcome email.
- * tags:
- * - Subscriptions
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * required:
- * - email
- * properties:
- * email:
- * type: string
- * format: email
- * description: The email address to subscribe.
- * responses:
- * 200:
- * description: Successfully subscribed and welcome email sent.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Successfully subscribed and welcome email sent!
- * emailError:
- * type: string
- * description: Present if there was an issue sending the email.
- * 400:
- * description: Invalid email format.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Invalid email format
- * 409:
- * description: Email already subscribed.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Email already subscribed
- * 500:
- * description: Internal Server Error.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Internal Server Error
- */
+// Schedule with configurable interval (default: 10 min)
+const intervalMinutes = parseInt(process.env.PIPELINE_INTERVAL || '10', 10);
+setInterval(runPythonScript, intervalMinutes * 60 * 1000);
 
-app.post('/api/subscribe',cors({
-  origin: process.env.CORS_ORIGIN ,
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}) ,async (req, res) => {
+// -----------------------------------------------------------
+// SUBSCRIBE / UNSUBSCRIBE ROUTES
+// -----------------------------------------------------------
+app.post('/api/subscribe', async (req, res) => {
   const { email } = req.body;
-  console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN);
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ message: 'Invalid email format' });
   }
 
   try {
-    const subscribers = JSON.parse(fs.readFileSync(subscribersFile, 'utf-8'));
+    let subscribers = [];
+    try {
+      subscribers = JSON.parse(fs.readFileSync(subscribersFile, 'utf-8'));
+    } catch {
+      logger.warn('subscribers.json corrupted, resetting file.');
+      subscribers = [];
+    }
 
     if (subscribers.includes(email)) {
       return res.status(409).json({ message: 'Email already subscribed' });
@@ -172,15 +135,11 @@ app.post('/api/subscribe',cors({
     subscribers.push(email);
     fs.writeFileSync(subscribersFile, JSON.stringify(subscribers, null, 2), 'utf-8');
 
-    // Send welcome email
     const emailResult = await emailService.sendWelcomeEmail(email);
     if (emailResult.success) {
-      logger.info(`Welcome email successfully sent to ${email}`);
       return res.status(200).json({ message: 'Successfully subscribed and welcome email sent!' });
     } else {
-      logger.error(`Failed to send welcome email to ${email}: ${emailResult.error}`);
-      // Subscription succeeded, but email sending failed. Notify client.
-      return res.status(200).json({ message: 'Successfully subscribed, but failed to send welcome email.', emailError: emailResult.error });
+      return res.status(200).json({ message: 'Subscribed but failed to send welcome email.', emailError: emailResult.error });
     }
   } catch (err) {
     logger.error('Subscription error:', err);
@@ -188,75 +147,8 @@ app.post('/api/subscribe',cors({
   }
 });
 
-/**
- * @swagger
- * /api/unsubscribe:
- * post:
- * summary: Unsubscribe from the newsletter
- * description: Removes an email from the CyberWatch newsletter and sends a confirmation email.
- * tags:
- * - Subscriptions
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * required:
- * - email
- * properties:
- * email:
- * type: string
- * format: email
- * description: The email address to unsubscribe.
- * responses:
- * 200:
- * description: Successfully unsubscribed and confirmation email sent.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Successfully unsubscribed and confirmation email sent!
- * emailError:
- * type: string
- * description: Present if there was an issue sending the email.
- * 400:
- * description: Invalid email format.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Invalid email format
- * 404:
- * description: Email not found in subscriber list.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Email not found in subscriber list.
- * 500:
- * description: Internal Server Error.
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * message:
- * type: string
- * example: Internal Server Error
- */
 app.post('/api/unsubscribe', async (req, res) => {
   const { email } = req.body;
-
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ message: 'Invalid email format' });
   }
@@ -273,15 +165,11 @@ app.post('/api/unsubscribe', async (req, res) => {
 
     fs.writeFileSync(subscribersFile, JSON.stringify(subscribers, null, 2), 'utf-8');
 
-    // Send unsubscribe confirmation email
     const emailResult = await emailService.sendUnsubscribeConfirmation(email);
     if (emailResult.success) {
-      logger.info(`Unsubscribe confirmation email successfully sent to ${email}`);
       return res.status(200).json({ message: 'Successfully unsubscribed and confirmation email sent!' });
     } else {
-      logger.error(`Failed to send unsubscribe confirmation email to ${email}: ${emailResult.error}`);
-      // Unsubscription succeeded, but email sending failed. Notify client.
-      return res.status(200).json({ message: 'Successfully unsubscribed, but failed to send confirmation email.', emailError: emailResult.error });
+      return res.status(200).json({ message: 'Unsubscribed but failed to send confirmation email.', emailError: emailResult.error });
     }
   } catch (err) {
     logger.error('Unsubscribe error:', err);
@@ -309,7 +197,7 @@ const swaggerOptions = {
     },
     servers: [{ url: `http://localhost:${config.port}`, description: 'Local dev' }]
   },
-  apis: ['./routes/*.js', './app.js'] // Include app.js to pick up subscriber route comments
+  apis: ['./routes/*.js', './app.js']
 };
 
 const specs = swaggerJsdoc(swaggerOptions);
@@ -319,9 +207,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
 }));
 
 // -----------------------------------------------------------
-// HEALTHCHECK & FALLBACKS
+// HEALTHCHECK
 // -----------------------------------------------------------
-// Healthcheck endpoint
 app.get('/health', (req, res) => {
   const memory = process.memoryUsage();
   res.json({
@@ -334,10 +221,12 @@ app.get('/health', (req, res) => {
     },
   });
 });
+
 app.get('/api', (req, res) => {
-    res.send('OK'); 
+  res.send('OK');
 });
-// 404 fallback for undefined routes
+
+// 404 fallback
 app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found', path: req.originalUrl });
 });
@@ -345,7 +234,6 @@ app.use('*', (req, res) => {
 // -----------------------------------------------------------
 // ERROR HANDLING
 // -----------------------------------------------------------
-// Global error handler
 app.use((err, req, res, next) => {
   logger.error(`Unhandled Error: ${err.message}`);
   res.status(500).json({ message: err.message });
