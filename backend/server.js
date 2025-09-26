@@ -215,7 +215,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
 // -----------------------------------------------------------
 // HEALTHCHECK
 // -----------------------------------------------------------
-app.get('/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   const memory = process.memoryUsage();
   res.json({
     status: 'OK',
