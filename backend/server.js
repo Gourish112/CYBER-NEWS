@@ -66,6 +66,11 @@ if (!fs.existsSync(subscribersFile)) {
 // -----------------------------------------------------------
 // PYTHON PIPELINE CRON JOB (FIXED)
 // -----------------------------------------------------------
+import cron from 'node-cron';
+
+// -----------------------------------------------------------
+// PYTHON PIPELINE CRON JOB (TWICE A DAY)
+// -----------------------------------------------------------
 let pythonProcess = null;
 
 const runPythonScript = () => {
@@ -82,7 +87,6 @@ const runPythonScript = () => {
 
   pythonProcess.stdout.on('data', (data) => {
     const line = data.toString();
-    // Truncate long lines to avoid cron "output too large"
     const safeLine = line.length > 500 ? line.substring(0, 500) + '... [truncated]' : line;
     logger.info(`Python stdout: ${safeLine}`);
   });
@@ -99,16 +103,18 @@ const runPythonScript = () => {
 
   pythonProcess.on('close', (code) => {
     logger.info(`main_pipeline.py exited with code ${code}`);
-    pythonProcess = null; // reset ref
+    pythonProcess = null;
   });
 };
 
-// Run immediately on startup
+// Run immediately on server startup (optional, you can remove this if you only want cron)
 runPythonScript();
 
-// Schedule with configurable interval (default: 10 min)
-const intervalMinutes = parseInt(process.env.PIPELINE_INTERVAL || '10', 10);
-setInterval(runPythonScript, intervalMinutes * 60 * 1000);
+// Schedule: run at 00:00 and 12:00 every day
+cron.schedule('0 0,12 * * *', () => {
+  logger.info('⏰ Scheduled run: main_pipeline.py starting...');
+  runPythonScript();
+});
 
 // -----------------------------------------------------------
 // SUBSCRIBE / UNSUBSCRIBE ROUTES
