@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     // Send confirmation email using Resend API
     try {
       await resend.emails.send({
-        from: `CyberWatch <${process.env.EMAIL_USER}>`,
+        from: `CyberWatch <cyberwatch@resend.dev>`,
         to: email,
         subject: "Subscription Confirmed ✅",
         html: `
