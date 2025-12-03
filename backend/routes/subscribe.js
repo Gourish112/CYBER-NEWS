@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     // Send confirmation email using Resend API
     try {
       await resend.emails.send({
-        from: `CyberWatch <onboarding@resend.dev>`,
+        from: "onboarding@resend.dev",
         to: email,
         subject: "Subscription Confirmed ✅",
         html: `
@@ -52,6 +52,7 @@ router.post("/", async (req, res) => {
           <p>Expect regular cybersecurity updates right in your inbox!</p>
         `
       });
+      console.log("RESEND RESULT:", result);
     } catch (emailErr) {
       console.error("Email send error:", emailErr);
       return res.status(200).json({
