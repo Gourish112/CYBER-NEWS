@@ -3,12 +3,11 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
-import { Resend } from "resend";
+import emailService from "../utils/emailService.js";
 
 dotenv.config();
 
 const router = express.Router();
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Path to subscribers file
 const subscribersFile = path.join(process.cwd(), "subscribers.json");
@@ -23,7 +22,6 @@ router.post("/", async (req, res) => {
   const { email } = req.body;
 
   console.log("📩 Incoming subscription request:", email);
-  console.log("🔑 RESEND API KEY loaded:", !!process.env.RESEND_API_KEY);
 
   if (!email || !email.includes("@")) {
     return res.status(400).json({ message: "Invalid email" });
@@ -36,6 +34,7 @@ router.post("/", async (req, res) => {
       return res.status(409).json({ message: "Email already subscribed" });
     }
 
+    // Add new subscriber
     subscribers.push(email);
     fs.writeFileSync(
       subscribersFile,
@@ -43,25 +42,22 @@ router.post("/", async (req, res) => {
       "utf-8"
     );
 
-    // Send email through Resend
+    // Send welcome email via emailService (Gmail)
     try {
-      console.log("📨 Sending email via Resend...");
+      console.log("📨 Sending welcome email using Gmail...");
 
-      const response = await resend.emails.send({
-        from: "CyberWatch <onboarding@resend.dev>", // MUST WORK WITHOUT DOMAIN SETUP
-        to: email,
-        subject: "Subscription Confirmed ✅",
-        html: `
-          <h2>Welcome to CyberWatch</h2>
-          <p>You have successfully subscribed to CyberWatch alerts.</p>
-          <p>Expect regular cybersecurity updates right in your inbox!</p>
-        `
-      });
+      const result = await emailService.sendWelcomeEmail(email);
 
-      console.log("📬 RESEND EMAIL RESPONSE:", response);
+      if (!result.success) {
+        console.error("❌ Email send error:", result.error);
 
+        return res.status(200).json({
+          message: "Subscribed, but failed to send email",
+          emailError: result.error,
+        });
+      }
     } catch (emailErr) {
-      console.error("❌ Email send error:", emailErr);
+      console.error("❌ Email sending failed:", emailErr.message);
 
       return res.status(200).json({
         message: "Subscribed, but failed to send email",
@@ -69,8 +65,9 @@ router.post("/", async (req, res) => {
       });
     }
 
-    res.status(200).json({ message: "Successfully subscribed and email sent!" });
-
+    res.status(200).json({
+      message: "Successfully subscribed and welcome email sent!",
+    });
   } catch (error) {
     console.error("❌ Error during subscription:", error);
     res.status(500).json({
