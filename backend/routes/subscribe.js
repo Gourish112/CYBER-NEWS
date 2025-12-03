@@ -22,6 +22,9 @@ if (!fs.existsSync(subscribersFile)) {
 router.post("/", async (req, res) => {
   const { email } = req.body;
 
+  console.log("📩 Incoming subscription request:", email);
+  console.log("🔑 RESEND API KEY loaded:", !!process.env.RESEND_API_KEY);
+
   if (!email || !email.includes("@")) {
     return res.status(400).json({ message: "Invalid email" });
   }
@@ -40,10 +43,12 @@ router.post("/", async (req, res) => {
       "utf-8"
     );
 
-    // Send confirmation email using Resend API
+    // Send email through Resend
     try {
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
+      console.log("📨 Sending email via Resend...");
+
+      const response = await resend.emails.send({
+        from: "CyberWatch <onboarding@resend.dev>", // MUST WORK WITHOUT DOMAIN SETUP
         to: email,
         subject: "Subscription Confirmed ✅",
         html: `
@@ -52,9 +57,12 @@ router.post("/", async (req, res) => {
           <p>Expect regular cybersecurity updates right in your inbox!</p>
         `
       });
-      console.log("RESEND RESULT:", result);
+
+      console.log("📬 RESEND EMAIL RESPONSE:", response);
+
     } catch (emailErr) {
-      console.error("Email send error:", emailErr);
+      console.error("❌ Email send error:", emailErr);
+
       return res.status(200).json({
         message: "Subscribed, but failed to send email",
         emailError: emailErr.message,
@@ -64,7 +72,7 @@ router.post("/", async (req, res) => {
     res.status(200).json({ message: "Successfully subscribed and email sent!" });
 
   } catch (error) {
-    console.error("Error during subscription:", error);
+    console.error("❌ Error during subscription:", error);
     res.status(500).json({
       message: "Internal Server Error",
       error: error.message,
