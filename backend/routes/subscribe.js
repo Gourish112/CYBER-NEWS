@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
       return res.status(409).json({ message: "Email already subscribed" });
     }
 
-    // Add new subscriber
+    // Save subscriber
     subscribers.push(email);
     fs.writeFileSync(
       subscribersFile,
@@ -42,34 +42,26 @@ router.post("/", async (req, res) => {
       "utf-8"
     );
 
-    // Send welcome email via emailService (Gmail)
-    try {
-      console.log("📨 Sending welcome email using Gmail...");
+    // Send welcome email using SendGrid
+    console.log("📨 Sending welcome email using SendGrid...");
 
-      const result = await emailService.sendWelcomeEmail(email);
+    const result = await emailService.sendWelcomeEmail(email);
 
-      if (!result.success) {
-        console.error("❌ Email send error:", result.error);
-
-        return res.status(200).json({
-          message: "Subscribed, but failed to send email",
-          emailError: result.error,
-        });
-      }
-    } catch (emailErr) {
-      console.error("❌ Email sending failed:", emailErr.message);
+    if (!result.success) {
+      console.error("❌ SendGrid email error:", result.error);
 
       return res.status(200).json({
         message: "Subscribed, but failed to send email",
-        emailError: emailErr.message,
+        emailError: result.error,
       });
     }
 
     res.status(200).json({
       message: "Successfully subscribed and welcome email sent!",
     });
+
   } catch (error) {
-    console.error("❌ Error during subscription:", error);
+    console.error("❌ Subscription error:", error);
     res.status(500).json({
       message: "Internal Server Error",
       error: error.message,
